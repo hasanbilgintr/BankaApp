@@ -9,10 +9,17 @@
     android:orientation="vertical"
     tools:context=".Activities.MainActivity">
 
-    <FrameLayout
-        android:id="@+id/content_FrameLayout"
+    <!--    <FrameLayout-->
+    <!--        android:id="@+id/content_FrameLayout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent" />-->
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/my_graph" />
 </LinearLayout>

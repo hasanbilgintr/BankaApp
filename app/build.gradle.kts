@@ -1,5 +1,10 @@
 plugins {
     alias(libs.plugins.androidApplication)
+    id ("androidx.navigation.safeargs")//eklendi
+
+
+
+
 }
 
 android {
@@ -32,6 +37,7 @@ android {
 
 }
 
+val nav_version = "2.7.7" //navigation eklendi
 dependencies {
 
     implementation(libs.appcompat)
@@ -48,4 +54,8 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.1.0")//retrofit eklendi
     implementation("com.squareup.okhttp3:okhttp:4.9.0")//retrofit eklendi
     implementation("com.squareup.retrofit2:converter-gson:2.1.0")//retrofit eklendi
+
+
+    implementation("androidx.navigation:navigation-fragment:$nav_version")//navigation eklendi
+    implementation("androidx.navigation:navigation-ui:$nav_version")//navigation eklendi
 }

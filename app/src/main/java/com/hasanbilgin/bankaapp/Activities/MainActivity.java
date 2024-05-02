@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        ChangeFragment changeFragment = new ChangeFragment(MainActivity.this, new LoginFragment(), "LoginFragment", R.id.content_FrameLayout);
-        changeFragment.change();
+//        ChangeFragment changeFragment = new ChangeFragment(MainActivity.this, new LoginFragment(), "LoginFragment", R.id.content_FrameLayout);
+//        changeFragment.change();
     }
 }

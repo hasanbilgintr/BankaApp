@@ -2,22 +2,21 @@ package com.hasanbilgin.bankaapp.Views.LoginIndividual;
 
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Intent;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.hasanbilgin.bankaapp.Other.ChangeFragment;
-import com.hasanbilgin.bankaapp.R;
-import com.hasanbilgin.bankaapp.Views.BankStatement.BankStatementFragment;
-import com.hasanbilgin.bankaapp.Views.MyAccounts.MyAccountsFragment;
+
+import com.hasanbilgin.bankaapp.Views.Login.LoginFragmentDirections;
 import com.hasanbilgin.bankaapp.databinding.FragmentLoginIndividualBinding;
 
 public class LoginIndividualFragment extends Fragment {
@@ -44,9 +43,9 @@ public class LoginIndividualFragment extends Fragment {
         binding.cepteKazanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!binding.passwodEditText.getText().toString().equals("")){
-                    String tc="12345678910";
-                    viewModel.loginuser(tc,binding.passwodEditText.getText().toString());
+                if (!binding.passwodEditText.getText().toString().equals("")) {
+                    String tc = "12345678910";
+                    viewModel.loginuser(tc, binding.passwodEditText.getText().toString());
                     viewModel.resultMessage.observe(getViewLifecycleOwner(), resultMesaj -> {
                         switch (resultMesaj.toString()) {
                             case "0":
@@ -55,8 +54,13 @@ public class LoginIndividualFragment extends Fragment {
                                 break;
                             case "1":
                                 //Toast.makeText(getContext(), "Giriş Yapıldı", Toast.LENGTH_SHORT).show();
-                                ChangeFragment changeFragment = new ChangeFragment(getContext(), new BankStatementFragment(), "BankStatementFragment", R.id.content_FrameLayout);
-                                changeFragment.change();
+                                //ChangeFragment changeFragment = new ChangeFragment(getContext(), new BankStatementFragment(), "BankStatementFragment", R.id.content_FrameLayout);
+                                //changeFragment.change();
+
+                                //Navigation ile
+                                NavDirections action = LoginFragmentDirections.actionLoginFragmentToBankStatementFragment();
+                                Navigation.findNavController(view).navigate(action);
+
                                 break;
                             case "2":
                                 //Toast.makeText(getContext(), "Kullanıcı Adı yada şifre hatalıdır", Toast.LENGTH_SHORT).show();
@@ -75,6 +79,7 @@ public class LoginIndividualFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+
     }
 
 }
