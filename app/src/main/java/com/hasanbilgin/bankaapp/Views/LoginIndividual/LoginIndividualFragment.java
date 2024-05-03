@@ -11,9 +11,12 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 
 import com.hasanbilgin.bankaapp.Views.Login.LoginFragmentDirections;
@@ -40,39 +43,68 @@ public class LoginIndividualFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.cepteKazanButton.setOnClickListener(new View.OnClickListener() {
+
+        binding.adsoyadTextView.setText("Hasan Bilgin");
+        binding.passwodEditText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
-                if (!binding.passwodEditText.getText().toString().equals("")) {
-                    String tc = "12345678910";
-                    viewModel.loginuser(tc, binding.passwodEditText.getText().toString());
-                    viewModel.resultMessage.observe(getViewLifecycleOwner(), resultMesaj -> {
-                        switch (resultMesaj.toString()) {
-                            case "0":
-                                //Toast mesajları gelmiyor kontrol edelim
-                                //Toast.makeText(getContext(), "Giriş Başarısız", Toast.LENGTH_SHORT).show();
-                                break;
-                            case "1":
-                                //Toast.makeText(getContext(), "Giriş Yapıldı", Toast.LENGTH_SHORT).show();
-                                //ChangeFragment changeFragment = new ChangeFragment(getContext(), new BankStatementFragment(), "BankStatementFragment", R.id.content_FrameLayout);
-                                //changeFragment.change();
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                                //Navigation ile
-                                NavDirections action = LoginFragmentDirections.actionLoginFragmentToBankStatementFragment();
-                                Navigation.findNavController(view).navigate(action);
+            }
 
-                                break;
-                            case "2":
-                                //Toast.makeText(getContext(), "Kullanıcı Adı yada şifre hatalıdır", Toast.LENGTH_SHORT).show();
-                                break;
-                            default:
-                                break;
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //1sn
+                try {
+                    if (s.length() == 6) {
+                        if (!binding.passwodEditText.getText().toString().equals("")) {
+                            String tc = "12345678910";
+                            viewModel.loginuser(tc, binding.passwodEditText.getText().toString());
+                            viewModel.resultMessage.observe(getViewLifecycleOwner(), resultMesaj -> {
+                                switch (resultMesaj) {
+                                    case 0:
+                                        //Toast mesajları gelmiyor kontrol edelim
+                                        //Toast.makeText(getContext(), "Giriş Başarısız", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 1:
+                                        //Toast.makeText(getContext(), "Giriş Yapıldı", Toast.LENGTH_SHORT).show();
+                                        //ChangeFragment changeFragment = new ChangeFragment(getContext(), new BankStatementFragment(), "BankStatementFragment", R.id.content_FrameLayout);
+                                        //changeFragment.change();
+                                        /* Toast.makeText(getContext(), "Giriş Yapıldı", Toast.LENGTH_SHORT).show();*/
+                                        //Navigation ile
+                                        NavDirections action = LoginFragmentDirections.actionLoginFragmentToBankStatementFragment();
+                                        Navigation.findNavController(view).navigate(action);
+
+                                        break;
+                                    case 2:
+                                        //Toast.makeText(getContext(), "Kullanıcı Adı yada şifre hatalıdır", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            });
                         }
-                    });
+                    }
+                } catch (Exception e) {
+
                 }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
 
             }
         });
+
+
+//        binding.cepteKazanButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+
+
+//            }
+//        });
+
+
     }
 
     @Override

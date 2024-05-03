@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.hasanbilgin.bankaapp.Adapters.SectionsPagerHomePageAdapter;
 
@@ -43,6 +44,8 @@ public class LoginFragment extends Fragment {
         SectionsPagerHomePageAdapter sectionsPagerHomePageAdapter = new SectionsPagerHomePageAdapter(getContext(), requireActivity().getSupportFragmentManager());
         binding.viewPager.setAdapter(sectionsPagerHomePageAdapter);
         binding.tabs.setupWithViewPager(binding.viewPager);
+
+
     }
 
 
