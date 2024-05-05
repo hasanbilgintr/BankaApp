@@ -32,7 +32,7 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
         binding = FragmentLoginBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -44,8 +44,6 @@ public class LoginFragment extends Fragment {
         SectionsPagerHomePageAdapter sectionsPagerHomePageAdapter = new SectionsPagerHomePageAdapter(getContext(), requireActivity().getSupportFragmentManager());
         binding.viewPager.setAdapter(sectionsPagerHomePageAdapter);
         binding.tabs.setupWithViewPager(binding.viewPager);
-
-
     }
 
 

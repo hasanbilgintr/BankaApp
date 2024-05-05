@@ -43,7 +43,6 @@ public class LoginIndividualFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         binding.adsoyadTextView.setText("Hasan Bilgin");
         binding.passwodEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -62,14 +61,13 @@ public class LoginIndividualFragment extends Fragment {
                             viewModel.resultMessage.observe(getViewLifecycleOwner(), resultMesaj -> {
                                 switch (resultMesaj) {
                                     case 0:
-                                        //Toast mesajları gelmiyor kontrol edelim
-                                        //Toast.makeText(getContext(), "Giriş Başarısız", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getContext(), "Giriş Başarısız", Toast.LENGTH_SHORT).show();
                                         break;
                                     case 1:
                                         //Toast.makeText(getContext(), "Giriş Yapıldı", Toast.LENGTH_SHORT).show();
                                         //ChangeFragment changeFragment = new ChangeFragment(getContext(), new BankStatementFragment(), "BankStatementFragment", R.id.content_FrameLayout);
                                         //changeFragment.change();
-                                        /* Toast.makeText(getContext(), "Giriş Yapıldı", Toast.LENGTH_SHORT).show();*/
+                                         Toast.makeText(getContext(), "Giriş Yapıldı", Toast.LENGTH_SHORT).show();
                                         //Navigation ile
                                         NavDirections action = LoginFragmentDirections.actionLoginFragmentToBankStatementFragment();
                                         Navigation.findNavController(view).navigate(action);
