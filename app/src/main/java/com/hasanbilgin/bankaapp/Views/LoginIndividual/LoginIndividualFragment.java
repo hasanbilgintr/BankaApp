@@ -25,9 +25,7 @@ import com.hasanbilgin.bankaapp.databinding.FragmentLoginIndividualBinding;
 public class LoginIndividualFragment extends Fragment {
 
     private LoginIndividualViewModel viewModel;
-
     private FragmentLoginIndividualBinding binding;
-
     public static LoginIndividualFragment newInstance() {
         return new LoginIndividualFragment();
     }
@@ -64,17 +62,15 @@ public class LoginIndividualFragment extends Fragment {
                                         Toast.makeText(getContext(), "Giriş Başarısız", Toast.LENGTH_SHORT).show();
                                         break;
                                     case 1:
-                                        //Toast.makeText(getContext(), "Giriş Yapıldı", Toast.LENGTH_SHORT).show();
                                         //ChangeFragment changeFragment = new ChangeFragment(getContext(), new BankStatementFragment(), "BankStatementFragment", R.id.content_FrameLayout);
                                         //changeFragment.change();
                                          Toast.makeText(getContext(), "Giriş Yapıldı", Toast.LENGTH_SHORT).show();
                                         //Navigation ile
                                         NavDirections action = LoginFragmentDirections.actionLoginFragmentToBankStatementFragment();
                                         Navigation.findNavController(view).navigate(action);
-
                                         break;
                                     case 2:
-                                        //Toast.makeText(getContext(), "Kullanıcı Adı yada şifre hatalıdır", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getContext(), "Kullanıcı Adı yada şifre hatalıdır", Toast.LENGTH_SHORT).show();
                                         break;
                                     default:
                                         break;
@@ -86,23 +82,11 @@ public class LoginIndividualFragment extends Fragment {
 
                 }
             }
-
             @Override
             public void afterTextChanged(Editable s) {
 
             }
         });
-
-
-//        binding.cepteKazanButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-
-
-//            }
-//        });
-
-
     }
 
     @Override

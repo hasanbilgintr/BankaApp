@@ -1,8 +1,10 @@
 package com.hasanbilgin.bankaapp.Activities;
 
 import android.os.Bundle;
+import android.window.OnBackInvokedDispatcher;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -27,5 +29,11 @@ public class MainActivity extends AppCompatActivity {
 
 //        ChangeFragment changeFragment = new ChangeFragment(MainActivity.this, new LoginFragment(), "LoginFragment", R.id.content_FrameLayout);
 //        changeFragment.change();
+    }
+
+    //geri tuşu kapatıldı
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
     }
 }

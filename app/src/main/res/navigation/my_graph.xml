@@ -9,7 +9,11 @@
         android:id="@+id/bankStatementFragment"
         android:name="com.hasanbilgin.bankaapp.Views.BankStatement.BankStatementFragment"
         android:label="fragment_bank_statement"
-        tools:layout="@layout/fragment_bank_statement" />
+        tools:layout="@layout/fragment_bank_statement" >
+        <action
+            android:id="@+id/action_bankStatementFragment_to_sendMoneyFragment"
+            app:destination="@id/sendMoneyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.hasanbilgin.bankaapp.Views.Login.LoginFragment"
@@ -19,4 +23,9 @@
             android:id="@+id/action_loginFragment_to_bankStatementFragment"
             app:destination="@id/bankStatementFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/sendMoneyFragment"
+        android:name="com.hasanbilgin.bankaapp.Views.SendMoney.SendMoneyFragment"
+        android:label="fragment_send_money"
+        tools:layout="@layout/fragment_send_money" />
 </navigation>
