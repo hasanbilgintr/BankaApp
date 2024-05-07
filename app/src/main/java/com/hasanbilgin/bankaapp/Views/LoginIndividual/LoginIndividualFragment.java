@@ -41,13 +41,17 @@ public class LoginIndividualFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         binding.adsoyadTextView.setText("Hasan Bilgin");
+        editTextChange();
+    }
+
+    private void editTextChange() {
         binding.passwodEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 //1sn
@@ -64,10 +68,10 @@ public class LoginIndividualFragment extends Fragment {
                                     case 1:
                                         //ChangeFragment changeFragment = new ChangeFragment(getContext(), new BankStatementFragment(), "BankStatementFragment", R.id.content_FrameLayout);
                                         //changeFragment.change();
-                                         Toast.makeText(getContext(), "Giriş Yapıldı", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getContext(), "Giriş Yapıldı", Toast.LENGTH_SHORT).show();
                                         //Navigation ile
                                         NavDirections action = LoginFragmentDirections.actionLoginFragmentToBankStatementFragment();
-                                        Navigation.findNavController(view).navigate(action);
+                                        Navigation.findNavController(binding.getRoot()).navigate(action);
                                         break;
                                     case 2:
                                         Toast.makeText(getContext(), "Kullanıcı Adı yada şifre hatalıdır", Toast.LENGTH_SHORT).show();

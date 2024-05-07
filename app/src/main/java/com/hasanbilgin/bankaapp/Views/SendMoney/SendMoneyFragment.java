@@ -7,6 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
@@ -16,6 +18,7 @@ import android.view.ViewGroup;
 import com.hasanbilgin.bankaapp.Adapters.SendMoneyAdapter;
 import com.hasanbilgin.bankaapp.Models.SendMoneyModel;
 import com.hasanbilgin.bankaapp.R;
+import com.hasanbilgin.bankaapp.Views.Login.LoginFragment;
 import com.hasanbilgin.bankaapp.Views.LoginIndividual.LoginIndividualViewModel;
 import com.hasanbilgin.bankaapp.databinding.FragmentLoginIndividualBinding;
 import com.hasanbilgin.bankaapp.databinding.FragmentSendMoneyBinding;
@@ -64,7 +67,12 @@ public class SendMoneyFragment extends Fragment {
         sendSpeedMoneyModelArrayList.add(AkilliTransfer);
 
         binding.sendSpeedMoneyRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        SendMoneyAdapter sendSpeedMoneyAdapter = new SendMoneyAdapter(sendSpeedMoneyModelArrayList);
+        SendMoneyAdapter sendSpeedMoneyAdapter = new SendMoneyAdapter(sendSpeedMoneyModelArrayList, "sendSpeedMoneyRecyclerView", new SendMoneyAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(int id, String recyclerViewName) {
+
+            }
+        });
         binding.sendSpeedMoneyRecyclerView.setAdapter(sendSpeedMoneyAdapter);
     }
 
@@ -77,7 +85,7 @@ public class SendMoneyFragment extends Fragment {
         SendMoneyModel odemeIste = new SendMoneyModel(4, "Ödeme İste");
         SendMoneyModel Isme = new SendMoneyModel(5, "İsme (Havale/EFT)");
         SendMoneyModel dovizTransferi = new SendMoneyModel(6, "Döviz Transferi (SWIFT)");
-        SendMoneyModel cebeParaGonder  = new SendMoneyModel(7, "Cebe Para Gönder");
+        SendMoneyModel cebeParaGonder = new SendMoneyModel(7, "Cebe Para Gönder");
         SendMoneyModel KumbaraParaGonder = new SendMoneyModel(8, "Kumbara Para Gönder");
 
         getDataTransferTransactionsModelArrayList.add(hesaplarimArasi);
@@ -90,8 +98,22 @@ public class SendMoneyFragment extends Fragment {
         getDataTransferTransactionsModelArrayList.add(KumbaraParaGonder);
 
         binding.transferTransactionsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        SendMoneyAdapter transferTransactionsAdapter = new SendMoneyAdapter(getDataTransferTransactionsModelArrayList);
-        binding.sendSpeedMoneyRecyclerView.setAdapter(transferTransactionsAdapter);
+        SendMoneyAdapter transferTransactionsAdapter = new SendMoneyAdapter(getDataTransferTransactionsModelArrayList, "transferTransactionsRecyclerView", new SendMoneyAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(int id, String recyclerViewName) {
+                if (recyclerViewName == "transferTransactionsRecyclerView") {
+                    switch (id) {
+                        case 2:
+                            NavDirections action = SendMoneyFragmentDirections.actionSendMoneyFragmentToPayinBillsFragment();
+                            Navigation.findNavController(binding.getRoot()).navigate(action);
+                            break;
+                        default:
+                    }
+                }
+            }
+        });
+
+        binding.transferTransactionsRecyclerView.setAdapter(transferTransactionsAdapter);
     }
 
 }

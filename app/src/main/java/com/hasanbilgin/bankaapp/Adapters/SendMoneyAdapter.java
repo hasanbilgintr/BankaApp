@@ -6,9 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hasanbilgin.bankaapp.Models.SendMoneyModel;
+
+import com.hasanbilgin.bankaapp.Views.SendMoney.*;
+import com.hasanbilgin.bankaapp.Views.SendMoney.SendMoneyFragment;
 import com.hasanbilgin.bankaapp.databinding.SendMoneyRowBinding;
 
 
@@ -17,10 +22,14 @@ import java.util.List;
 
 public class SendMoneyAdapter extends RecyclerView.Adapter<SendMoneyAdapter.PlaceHolder> {
 
-    ArrayList<SendMoneyModel> sendMoneyModelList;
+    private ArrayList<SendMoneyModel> sendMoneyModelList;
+    private String recyclerViewName;
+    private ItemClickListener itemClickListener;
 
-    public SendMoneyAdapter(ArrayList<SendMoneyModel> sendMoneyModelList) {
+    public SendMoneyAdapter(ArrayList<SendMoneyModel> sendMoneyModelList, String recyclerViewName, ItemClickListener itemClickListener) {
         this.sendMoneyModelList = sendMoneyModelList;
+        this.recyclerViewName = recyclerViewName;
+        this.itemClickListener = itemClickListener;
     }
 
     @NonNull
@@ -39,11 +48,9 @@ public class SendMoneyAdapter extends RecyclerView.Adapter<SendMoneyAdapter.Plac
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(holder.itemView.getContext(), MapsActivity.class);
-//                intent.putExtra("info", "old");
-//                // placeList.get(position) gönderilmeye çalışıldığında modele Place.java yani  public class Place implements Serializable yapıldı
-//                intent.putExtra("place", placeList.get(position));
-//                holder.itemView.getContext().startActivity(intent);
+                if (recyclerViewName == "transferTransactionsRecyclerView") {
+                    itemClickListener.onItemClick(sendMoneyModelList.get(position).id, recyclerViewName);
+                }
             }
         });
     }
@@ -61,5 +68,9 @@ public class SendMoneyAdapter extends RecyclerView.Adapter<SendMoneyAdapter.Plac
             this.binding = sendMoneyRowBinding;
         }
 
+    }
+
+    public interface ItemClickListener {
+        void onItemClick(int id, String recyclerViewName);
     }
 }
