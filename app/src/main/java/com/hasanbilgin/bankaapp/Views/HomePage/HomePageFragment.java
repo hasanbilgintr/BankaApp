@@ -43,6 +43,8 @@ public class HomePageFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         buttonOnclik(view);
+
+        //getTblMoneyMovements
     }
 
     private void buttonOnclik(View view) {

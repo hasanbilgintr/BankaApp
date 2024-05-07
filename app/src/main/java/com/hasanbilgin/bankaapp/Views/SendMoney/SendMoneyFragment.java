@@ -114,6 +114,7 @@ public class SendMoneyFragment extends Fragment {
         });
 
         binding.transferTransactionsRecyclerView.setAdapter(transferTransactionsAdapter);
+
     }
 
 }
