@@ -1,6 +1,7 @@
 package com.hasanbilgin.bankaapp.Activities;
 
 import android.os.Bundle;
+import android.widget.Toast;
 import android.window.OnBackInvokedDispatcher;
 
 import androidx.activity.EdgeToEdge;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
 
 //        ChangeFragment changeFragment = new ChangeFragment(MainActivity.this, new LoginFragment(), "LoginFragment", R.id.content_FrameLayout);
 //        changeFragment.change();

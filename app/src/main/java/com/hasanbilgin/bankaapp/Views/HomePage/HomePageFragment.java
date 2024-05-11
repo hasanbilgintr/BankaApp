@@ -1,5 +1,6 @@
 package com.hasanbilgin.bankaapp.Views.HomePage;
 
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -9,16 +10,24 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.hasanbilgin.bankaapp.Adapters.MoneyMovementsAdapter;
+import com.hasanbilgin.bankaapp.Adapters.SendMoneyAdapter;
+import com.hasanbilgin.bankaapp.Models.MoneyMovementsModel;
 import com.hasanbilgin.bankaapp.R;
 import com.hasanbilgin.bankaapp.Views.BankStatement.BankStatementFragmentDirections;
 import com.hasanbilgin.bankaapp.Views.LoginIndividual.LoginIndividualViewModel;
 import com.hasanbilgin.bankaapp.databinding.FragmentHomePageBinding;
 import com.hasanbilgin.bankaapp.databinding.FragmentLoginIndividualBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomePageFragment extends Fragment {
 
@@ -26,6 +35,8 @@ public class HomePageFragment extends Fragment {
 
 
     private FragmentHomePageBinding binding;
+
+    ArrayList<MoneyMovementsModel> moneyMovementsList;
 
     public static HomePageFragment newInstance() {
         return new HomePageFragment();
@@ -42,13 +53,67 @@ public class HomePageFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        buttonOnclik(view);
 
-        //getTblMoneyMovements
+        buttonOnclik();
+        getAccountInfo();
+        getMoneyMovementsList();
     }
 
-    private void buttonOnclik(View view) {
-        sendMoneyOnclick(view);
+    private void getMoneyMovementsList() {
+        viewModel.moneyMovementsList();
+        viewModel.resultMessageInt.observe(getViewLifecycleOwner(), resultMessageInt -> {
+            switch (resultMessageInt) {
+                case 0:
+                    break;
+                case 1:
+                    viewModel.resultMoneyMovementsList.observe(getViewLifecycleOwner(), resultMoneyMovementsList -> {
+                        moneyMovementsList = new ArrayList<>();
+                        for (int i = 0; i < resultMoneyMovementsList.size(); i++) {
+                            moneyMovementsList.add(resultMoneyMovementsList.get(i));
+                        }
+                        System.out.println("getmoney" + moneyMovementsList);
+
+                        binding.moneyMovementsrecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                        MoneyMovementsAdapter moneyMovementsAdapter = new MoneyMovementsAdapter(moneyMovementsList);
+                        binding.moneyMovementsrecyclerView.setAdapter(moneyMovementsAdapter);
+                    });
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                default:
+                    break;
+            }
+        });
+    }
+
+    private void getAccountInfo() {
+//        viewModel.accountInfo(tc, binding.passwodEditText.getText().toString());
+//        viewModel.resultMessageInt.observe(getViewLifecycleOwner(), resultMessageInt -> {
+//            switch (resultMessageInt) {
+//                case 0:
+//                    Toast.makeText(getContext(), "Giriş Başarısız", Toast.LENGTH_SHORT).show();
+//                    break;
+//                case 1:
+//                    //ChangeFragment changeFragment = new ChangeFragment(getContext(), new BankStatementFragment(), "BankStatementFragment", R.id.content_FrameLayout);
+//                    //changeFragment.change();
+//                    Toast.makeText(getContext(), "Giriş Yapıldı", Toast.LENGTH_SHORT).show();
+//                    //Navigation ile
+//                    NavDirections action = LoginFragmentDirections.actionLoginFragmentToBankStatementFragment();
+//                    Navigation.findNavController(binding.getRoot()).navigate(action);
+//                    break;
+//                case 2:
+//                    Toast.makeText(getContext(), "Kullanıcı Adı yada şifre hatalıdır", Toast.LENGTH_SHORT).show();
+//                    break;
+//                default:
+//                    break;
+//            }
+//        });
+    }
+
+    private void buttonOnclik() {
+        sendMoneyOnclick(binding.getRoot());
     }
 
     private void sendMoneyOnclick(View view) {
@@ -60,6 +125,7 @@ public class HomePageFragment extends Fragment {
             }
         });
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

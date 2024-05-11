@@ -2,17 +2,34 @@ package com.hasanbilgin.bankaapp.Models;
 
 public class LoginModel {
 
-    private int resultMessage;
+    private int accountId;
 
-
+    private String email;
+    private int resultMessageInt;
     private Boolean isResult;
 
-    public int getResultMessage() {
-        return resultMessage;
+    public int getAccountId() {
+        return accountId;
     }
 
-    public void setResultMessage(int resultMessage) {
-        this.resultMessage = resultMessage;
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getResultMessageInt() {
+        return resultMessageInt;
+    }
+
+    public void setResultMessageInt(int resultMessageInt) {
+        this.resultMessageInt = resultMessageInt;
     }
 
     public Boolean getResult() {
@@ -23,16 +40,15 @@ public class LoginModel {
         isResult = result;
     }
 
-
     @Override
     public String toString() {
         return "LoginModel{" +
-                "resultMessage=" + resultMessage +
+                "accountId=" + accountId +
+                ", email='" + email + '\'' +
+                ", resultMessageInt=" + resultMessageInt +
                 ", isResult=" + isResult +
                 '}';
     }
-
-
 
 
 

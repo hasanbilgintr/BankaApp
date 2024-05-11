@@ -69,6 +69,8 @@
                     android:hint="Dijital Şifre (123456) giriniz"
                     android:maxLength="6"
                     android:textColorHint="#8B8B8B"
+                    android:textColor="#000000"
+                    android:inputType="numberPassword"
                     android:textSize="18sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -109,6 +111,7 @@
                         android:layout_gravity="center"
                         android:text="Cepte Kazan"
                         android:textSize="16sp"
+                        android:textColor="#000000"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -138,6 +141,7 @@
                         android:layout_gravity="center"
                         android:text="Karekod İşlemleri"
                         android:textSize="16sp"
+                        android:textColor="#000000"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -166,6 +170,7 @@
                         android:layout_gravity="center"
                         android:text="Cep İmza"
                         android:textSize="16sp"
+                        android:textColor="#000000"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -203,6 +208,7 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:text="Şube ve ATM"
+                            android:textColor="#000000"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -239,6 +245,7 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:text="Piyasa Bilgileri"
+                            android:textColor="#000000"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -275,6 +282,7 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:text="Hesaplama Araçları"
+                            android:textColor="#000000"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -310,6 +318,7 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:text="Müşteri İletişim Merkezi"
+                            android:textColor="#000000"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>

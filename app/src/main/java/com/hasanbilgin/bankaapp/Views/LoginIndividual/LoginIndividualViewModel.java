@@ -6,6 +6,7 @@ import android.widget.Toast;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.hasanbilgin.bankaapp.Contants.Constants;
 import com.hasanbilgin.bankaapp.Models.LoginModel;
 import com.hasanbilgin.bankaapp.Services.*;
 
@@ -16,10 +17,10 @@ import retrofit2.Response;
 public class LoginIndividualViewModel extends ViewModel {
     // TODO: Implement the ViewModel
 
-    public MutableLiveData<Integer> resultMessage;
+    public MutableLiveData<Integer> resultMessageInt;
 
     public void loginuser(String tc, String password) {
-        resultMessage = new MutableLiveData<>();
+        resultMessageInt = new MutableLiveData<>();
 
         try {
             Call<LoginModel> login = ManagerAll.getInstance().loginUser(tc, password);
@@ -28,20 +29,30 @@ public class LoginIndividualViewModel extends ViewModel {
                 public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
                     if (response.isSuccessful()) {
                         if (response.body().getResult()) {
-                            resultMessage.setValue(1);
+                            //System.out.println("response: "+response.body().toString());
+                            Constants.login.accounID = response.body().getAccountId();
+                            Constants.login.email = response.body().getEmail();
+
                         } else {
-                            resultMessage.setValue(0);
+                            //verinin olmaması
+                            //System.out.println("getResult.false" +response.body().toString());
                         }
+                        resultMessageInt.setValue(response.body().getResultMessageInt());
+                    } else {
+                        //System.out.println("isSuccessful. else" +response.body().toString());
+                        resultMessageInt.setValue(0);
                     }
                 }
+
                 @Override
                 public void onFailure(Call<LoginModel> call, Throwable t) {
                     Log.i(t.toString(), "Throwable");
-                    resultMessage.setValue(0);
+                    resultMessageInt.setValue(0);
                 }
             });
         } catch (Exception ignored) {
-            Log.i(ignored.toString(), "ignored" );
+            Log.i(ignored.toString(), "ignored");
+            resultMessageInt.setValue(0);
         }
     }
 }

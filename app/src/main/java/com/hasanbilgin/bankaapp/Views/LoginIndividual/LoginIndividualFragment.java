@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 
+import com.hasanbilgin.bankaapp.Contants.Constants;
 import com.hasanbilgin.bankaapp.Views.Login.LoginFragmentDirections;
 import com.hasanbilgin.bankaapp.databinding.FragmentLoginIndividualBinding;
 
@@ -60,8 +61,8 @@ public class LoginIndividualFragment extends Fragment {
                         if (!binding.passwodEditText.getText().toString().equals("")) {
                             String tc = "12345678910";
                             viewModel.loginuser(tc, binding.passwodEditText.getText().toString());
-                            viewModel.resultMessage.observe(getViewLifecycleOwner(), resultMesaj -> {
-                                switch (resultMesaj) {
+                            viewModel.resultMessageInt.observe(getViewLifecycleOwner(), resultMessageInt -> {
+                                switch (resultMessageInt) {
                                     case 0:
                                         Toast.makeText(getContext(), "Giriş Başarısız", Toast.LENGTH_SHORT).show();
                                         break;
