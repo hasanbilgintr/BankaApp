@@ -9,14 +9,15 @@ import java.util.Date;
 public class MoneyMovementsModel {
 
     private int id;
+
+
+
     private int accountId;
-    private String movementType;
     private Double amount;
-    private Date date;
+    private String transferDate;
     private int moneyTransferId;
-
     private String currency;
-
+    private String transferInfo;
     private int resultMessageInt;
     private Boolean isResult;
 
@@ -27,20 +28,13 @@ public class MoneyMovementsModel {
     public void setId(int id) {
         this.id = id;
     }
+
     public int getAccountId() {
         return accountId;
     }
 
     public void setAccountId(int accountId) {
         this.accountId = accountId;
-    }
-
-    public String getMovementType() {
-        return movementType;
-    }
-
-    public void setMovementType(String movementType) {
-        this.movementType = movementType;
     }
 
     public Double getAmount() {
@@ -51,12 +45,12 @@ public class MoneyMovementsModel {
         this.amount = amount;
     }
 
-    public Date getDate() {
-        return date;
+    public String getTransferDate() {
+        return transferDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setTransferDate(String transferDate) {
+        this.transferDate = transferDate;
     }
 
     public int getMoneyTransferId() {
@@ -75,6 +69,14 @@ public class MoneyMovementsModel {
         this.currency = currency;
     }
 
+    public String getTransferInfo() {
+        return transferInfo;
+    }
+
+    public void setTransferInfo(String transferInfo) {
+        this.transferInfo = transferInfo;
+    }
+
     public int getResultMessageInt() {
         return resultMessageInt;
     }
@@ -91,19 +93,21 @@ public class MoneyMovementsModel {
         isResult = result;
     }
 
+
     @Override
     public String toString() {
         return "MoneyMovementsModel{" +
                 "id=" + id +
                 ", accountId=" + accountId +
-                ", movementType='" + movementType + '\'' +
                 ", amount=" + amount +
-                ", date=" + date +
+                ", transferDate='" + transferDate + '\'' +
                 ", moneyTransferId=" + moneyTransferId +
                 ", currency='" + currency + '\'' +
+                ", transferInfo='" + transferInfo + '\'' +
                 ", resultMessageInt=" + resultMessageInt +
                 ", isResult=" + isResult +
                 '}';
     }
+
 
 }

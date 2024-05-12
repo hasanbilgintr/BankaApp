@@ -4,6 +4,7 @@ package com.hasanbilgin.bankaapp.Services;
 
 import android.util.Log;
 import com.hasanbilgin.bankaapp.Contants.Constants;
+import com.hasanbilgin.bankaapp.Models.AccountInfoModel;
 import com.hasanbilgin.bankaapp.Models.LoginModel;
 import com.hasanbilgin.bankaapp.Models.MoneyMovementsModel;
 
@@ -28,6 +29,10 @@ public class ManagerAll extends BaseManager {
         return a;
     }
 
+    public Call<AccountInfoModel> accountInfo() {
+        Call<AccountInfoModel> a = getRestApi().accountInfo(Constants.login.accounID, Constants.ApiParams.dbhost, Constants.ApiParams.dbusername,Constants.ApiParams.dbpassword,Constants.ApiParams.dbname);
+        return a;
+    }
 
 
 

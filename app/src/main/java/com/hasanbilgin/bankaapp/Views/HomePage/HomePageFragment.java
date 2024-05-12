@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.hasanbilgin.bankaapp.Adapters.MoneyMovementsAdapter;
 import com.hasanbilgin.bankaapp.Adapters.SendMoneyAdapter;
+import com.hasanbilgin.bankaapp.Contants.Constants;
 import com.hasanbilgin.bankaapp.Models.MoneyMovementsModel;
 import com.hasanbilgin.bankaapp.R;
 import com.hasanbilgin.bankaapp.Views.BankStatement.BankStatementFragmentDirections;
@@ -71,7 +72,7 @@ public class HomePageFragment extends Fragment {
                         for (int i = 0; i < resultMoneyMovementsList.size(); i++) {
                             moneyMovementsList.add(resultMoneyMovementsList.get(i));
                         }
-                        System.out.println("getmoney" + moneyMovementsList);
+                        //System.out.println("getmoney::...." + moneyMovementsList);
 
                         binding.moneyMovementsrecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                         MoneyMovementsAdapter moneyMovementsAdapter = new MoneyMovementsAdapter(moneyMovementsList);
@@ -89,27 +90,20 @@ public class HomePageFragment extends Fragment {
     }
 
     private void getAccountInfo() {
-//        viewModel.accountInfo(tc, binding.passwodEditText.getText().toString());
-//        viewModel.resultMessageInt.observe(getViewLifecycleOwner(), resultMessageInt -> {
-//            switch (resultMessageInt) {
-//                case 0:
-//                    Toast.makeText(getContext(), "Giriş Başarısız", Toast.LENGTH_SHORT).show();
-//                    break;
-//                case 1:
-//                    //ChangeFragment changeFragment = new ChangeFragment(getContext(), new BankStatementFragment(), "BankStatementFragment", R.id.content_FrameLayout);
-//                    //changeFragment.change();
-//                    Toast.makeText(getContext(), "Giriş Yapıldı", Toast.LENGTH_SHORT).show();
-//                    //Navigation ile
-//                    NavDirections action = LoginFragmentDirections.actionLoginFragmentToBankStatementFragment();
-//                    Navigation.findNavController(binding.getRoot()).navigate(action);
-//                    break;
-//                case 2:
-//                    Toast.makeText(getContext(), "Kullanıcı Adı yada şifre hatalıdır", Toast.LENGTH_SHORT).show();
-//                    break;
-//                default:
-//                    break;
-//            }
-//        });
+        viewModel.accountInfo();
+        viewModel.resultAccountInfo.observe(getViewLifecycleOwner(), resultMessageInt -> {
+            switch (resultMessageInt) {
+                case 0:  Toast.makeText(getContext(), "Hesap Bilgileri getirilemedi Lütfen Tekrar deneyiniz", Toast.LENGTH_SHORT).show();
+                    break;
+                case 1:
+
+                    break;
+                case 2:
+                    break;
+                default:
+                    break;
+            }
+        });
     }
 
     private void buttonOnclik() {

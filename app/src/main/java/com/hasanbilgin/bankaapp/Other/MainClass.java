@@ -2,31 +2,31 @@ package com.hasanbilgin.bankaapp.Other;
 
 public class MainClass {
 
-    public static String getMoon(int moonInt) {
+    public static String getMoon(String moonInt) {
         switch (moonInt) {
-            case 1:
+            case "01":
                 return "Ocak";
-            case 2:
+            case "02":
                 return "Şubat";
-            case 3:
+            case "03":
                 return "Mart";
-            case 4:
+            case "04":
                 return "Nisan";
-            case 5:
+            case "05":
                 return "Mayıs";
-            case 6:
+            case "06":
                 return "Haziran";
-            case 7:
+            case "07":
                 return "Temmuz";
-            case 8:
+            case "08":
                 return "Ağustos";
-            case 9:
+            case "09":
                 return "Eylül";
-            case 10:
+            case "10":
                 return "Ekim";
-            case 11:
+            case "11":
                 return "Kasım";
-            case 12:
+            case "12":
                 return "Aralık";
             default:
                 return "";
@@ -38,14 +38,9 @@ public class MainClass {
         String amount = sayi.replace('.', ',');
         int amountIndex = amount.indexOf(',');
 
-        System.out.println("amountLength-amountIndex: "+(amountLength-amountIndex));
-        switch (amountLength-amountIndex) {
-            case 2:
-                return amount+"0";
-            case 1:
-                return amount+"00";
-            default:
-                return amount;
+        if (amountLength - amountIndex == 2) {
+            return amount + "0";
         }
+        return amount;
     }
 }

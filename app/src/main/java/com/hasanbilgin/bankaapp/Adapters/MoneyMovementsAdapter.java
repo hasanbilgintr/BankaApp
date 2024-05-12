@@ -14,6 +14,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class MoneyMovementsAdapter extends RecyclerView.Adapter<MoneyMovementsAdapter.PlaceHolder> {
 
@@ -28,23 +29,19 @@ public class MoneyMovementsAdapter extends RecyclerView.Adapter<MoneyMovementsAd
     public PlaceHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         MoneyMovementsRowBinding moneyMovementsRowBinding = MoneyMovementsRowBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-
         return new PlaceHolder(moneyMovementsRowBinding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull PlaceHolder holder, int position) {
-//        holder.binding. sendMoneyRecyclerTextView.setText(sendMoneyModelList.get(position).name);
+        holder.binding.dayTextView.setText(moneyMovementsModelsList.get(position).getTransferDate().substring(8, 10));
+        holder.binding.moonTextView.setText(MainClass.getMoon(moneyMovementsModelsList.get(position).getTransferDate().substring(5, 7)));
+        holder.binding.hourTextView.setText(moneyMovementsModelsList.get(position).getTransferDate().substring(11,16));
         holder.binding.amountTextView.setText(moneyMovementsModelsList.get(position).getAmount().toString() + " " + moneyMovementsModelsList.get(position).getCurrency());
-        //new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        holder.binding.transferInfoTextView.setText(moneyMovementsModelsList.get(position).getTransferInfo());
 
 
-        SimpleDateFormat dateFormatDay = new SimpleDateFormat("d");
-        holder.binding.dayTextView.setText(dateFormatDay.format(moneyMovementsModelsList.get(position).getDate()));
-        SimpleDateFormat dateFormatMoon = new SimpleDateFormat("M");
-        holder.binding.moonTextView.setText(MainClass.getMoon(Integer.parseInt(dateFormatMoon.format(moneyMovementsModelsList.get(position).getDate()))));
-        holder.binding.amountTextView.setText(MainClass.getCommaAndZero(moneyMovementsModelsList.get(position).getAmount().toString())+" "+moneyMovementsModelsList.get(position).getCurrency());
-
+        holder.binding.amountTextView.setText(MainClass.getCommaAndZero(moneyMovementsModelsList.get(position).getAmount().toString()) + " " + moneyMovementsModelsList.get(position).getCurrency());
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.hasanbilgin.bankaapp.Services;
 
 import com.hasanbilgin.bankaapp.Contants.Constants;
+import com.hasanbilgin.bankaapp.Models.AccountInfoModel;
 import com.hasanbilgin.bankaapp.Models.LoginModel;
 import com.hasanbilgin.bankaapp.Models.MoneyMovementsModel;
 
@@ -25,5 +26,11 @@ public interface RestApi {
     @FormUrlEncoded
     @POST(Constants.MoneyMovementsListFile)
     Call<List<MoneyMovementsModel>> moneyMovementsList(@Field("accountId") int accountId,@Field("dbhost") String dbhost,@Field("dbusername") String dbusername,@Field("dbpassword") String dbpassword,@Field("dbname") String dbname);
+    //endregion
+
+    //region AccountInfo
+    @FormUrlEncoded
+    @POST(Constants.accountInfoFile)
+    Call<AccountInfoModel> accountInfo(@Field("accountId") int accountId, @Field("dbhost") String dbhost, @Field("dbusername") String dbusername, @Field("dbpassword") String dbpassword, @Field("dbname") String dbname);
     //endregion
 }
