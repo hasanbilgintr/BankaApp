@@ -91,12 +91,13 @@ public class HomePageFragment extends Fragment {
 
     private void getAccountInfo() {
         viewModel.accountInfo();
-        viewModel.resultAccountInfo.observe(getViewLifecycleOwner(), resultMessageInt -> {
+        viewModel.resultMessageInt.observe(getViewLifecycleOwner(), resultMessageInt -> {
             switch (resultMessageInt) {
                 case 0:  Toast.makeText(getContext(), "Hesap Bilgileri getirilemedi Lütfen Tekrar deneyiniz", Toast.LENGTH_SHORT).show();
                     break;
                 case 1:
 
+                    //devam edilcek
                     break;
                 case 2:
                     break;

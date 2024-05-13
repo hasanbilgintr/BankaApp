@@ -42,8 +42,8 @@ public class LoginFragment extends Fragment {
 
 
         SectionsPagerHomePageAdapter sectionsPagerHomePageAdapter = new SectionsPagerHomePageAdapter(getContext(), requireActivity().getSupportFragmentManager());
-        binding.viewPager.setAdapter(sectionsPagerHomePageAdapter);
-        binding.tabs.setupWithViewPager(binding.viewPager);
+        binding.viewPagerLogin.setAdapter(sectionsPagerHomePageAdapter);
+        binding.tabLogin.setupWithViewPager(binding.viewPagerLogin);
     }
 
 

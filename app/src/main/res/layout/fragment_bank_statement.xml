@@ -54,14 +54,14 @@
             android:orientation="vertical">
 
             <androidx.viewpager.widget.ViewPager
-                android:id="@+id/view_pager2"
+                android:id="@+id/viewPagerBankStatement"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="92"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
             <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabs2"
+                android:id="@+id/tabBankStatement"
                 android:layout_width="match_parent"
 android:background="#BDD5E8"
                 android:layout_height="0dp"

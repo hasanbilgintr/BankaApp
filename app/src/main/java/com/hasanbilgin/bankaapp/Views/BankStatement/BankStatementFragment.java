@@ -47,14 +47,14 @@ public class BankStatementFragment extends Fragment {
     private void tabPageInstance() {
 
         SectionsPagerMyAccountsAdapter sectionsPagerMyAccountsAdapter = new SectionsPagerMyAccountsAdapter(getContext(), requireActivity().getSupportFragmentManager());
-        binding.viewPager2.setAdapter(sectionsPagerMyAccountsAdapter);
-        binding.tabs2.setupWithViewPager(binding.viewPager2);
+        binding.viewPagerBankStatement.setAdapter(sectionsPagerMyAccountsAdapter);
+        binding.tabBankStatement.setupWithViewPager(binding.viewPagerBankStatement);
 
         //tablara icon ekleme
-        binding.tabs2.getTabAt(0).setIcon(R.drawable.baseline_add_home_24);
-        binding.tabs2.getTabAt(1).setIcon(R.drawable.baseline_attach_money_24);
-        binding.tabs2.getTabAt(2).setIcon(R.drawable.baseline_app_settings_alt_24);
-        binding.tabs2.getTabAt(3).setIcon(R.drawable.baseline_clear_all_24);
+        binding.tabBankStatement.getTabAt(0).setIcon(R.drawable.baseline_add_home_24);
+        binding.tabBankStatement.getTabAt(1).setIcon(R.drawable.baseline_attach_money_24);
+        binding.tabBankStatement.getTabAt(2).setIcon(R.drawable.baseline_app_settings_alt_24);
+        binding.tabBankStatement.getTabAt(3).setIcon(R.drawable.baseline_clear_all_24);
     }
 
 }

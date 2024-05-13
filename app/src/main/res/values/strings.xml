@@ -6,4 +6,11 @@
     <string name="tab_bankstatement_text2">VARLIKLARIM</string>
     <string name="tab_bankstatement_text3">BENİM YERİM</string>
     <string name="tab_bankstatement_text4">TÜM İŞLEMLER</string>
+
+    <string name="tab_payinbills_text1">IBAN</string>
+    <string name="tab_payinbills_text2">HESAP</string>
+    <string name="tab_payinbills_text3">KART</string>
+    <string name="tab_payinbills_text4">KOLAY ADRES</string>
+
+
 </resources>

@@ -11,13 +11,14 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.hasanbilgin.bankaapp.R;
 import com.hasanbilgin.bankaapp.Views.LoginCommercial.LoginCommercialFragment;
 import com.hasanbilgin.bankaapp.Views.LoginIndividual.LoginIndividualFragment;
-import com.hasanbilgin.bankaapp.databinding.FragmentLoginCommercialBinding;
+import com.hasanbilgin.bankaapp.Views.PayinBillsIban.PayinBillsIbanFragment;
 
 
 public class SectionsPagerHomePageAdapter extends FragmentPagerAdapter {
 
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.tab_login_text1, R.string.tab_login_text2};
+
     private final Context mContext;
 
     public SectionsPagerHomePageAdapter(Context context, FragmentManager fm) {
@@ -35,6 +36,7 @@ public class SectionsPagerHomePageAdapter extends FragmentPagerAdapter {
         } else {
             return LoginCommercialFragment.newInstance();
         }
+
     }
 
     @Nullable
@@ -46,6 +48,6 @@ public class SectionsPagerHomePageAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Show 2 total pages.
-        return 2;
+        return TAB_TITLES.length;
     }
 }

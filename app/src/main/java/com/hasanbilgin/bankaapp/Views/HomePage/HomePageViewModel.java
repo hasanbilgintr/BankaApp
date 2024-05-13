@@ -40,9 +40,9 @@ public class HomePageViewModel extends ViewModel {
                 public void onResponse(Call<List<MoneyMovementsModel>> call, Response<List<MoneyMovementsModel>> response) {
                     if (response.isSuccessful()) {
                         if (response.body().get(0).getResult()) {
-                            System.out.println("getResult");
+                            //System.out.println("getResult");
                             resultMoneyMovementsList.setValue(response.body());
-                            System.out.println(response.body().toString());
+                            //System.out.println(response.body().toString());
                         }
                         resultMessageInt.setValue(response.body().get(0).getResultMessageInt());
                     } else {

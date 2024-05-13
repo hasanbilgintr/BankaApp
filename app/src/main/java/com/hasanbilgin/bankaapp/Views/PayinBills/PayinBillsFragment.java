@@ -12,11 +12,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hasanbilgin.bankaapp.Adapters.SectionsPagerHomePageAdapter;
+import com.hasanbilgin.bankaapp.Adapters.SectionsPagerPayinBillsAdapter;
 import com.hasanbilgin.bankaapp.R;
+import com.hasanbilgin.bankaapp.Views.Login.LoginViewModel;
+import com.hasanbilgin.bankaapp.databinding.FragmentLoginBinding;
+import com.hasanbilgin.bankaapp.databinding.FragmentPayinBillsBinding;
 
 public class PayinBillsFragment extends Fragment {
 
-    private PayinBillsViewModel mViewModel;
+    private PayinBillsViewModel viewModel;
+    private FragmentPayinBillsBinding binding;
 
     public static PayinBillsFragment newInstance() {
         return new PayinBillsFragment();
@@ -25,14 +31,28 @@ public class PayinBillsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_payin_bills, container, false);
+
+
+        viewModel = new ViewModelProvider(requireActivity()).get(PayinBillsViewModel.class);
+        binding = FragmentPayinBillsBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(PayinBillsViewModel.class);
-        // TODO: Use the ViewModel
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
+        SectionsPagerPayinBillsAdapter sectionsPagerPayinBillsAdapter = new SectionsPagerPayinBillsAdapter(getContext(), requireActivity().getSupportFragmentManager());
+        binding.viewPagerPayinBills.setAdapter(sectionsPagerPayinBillsAdapter);
+
+        binding.tabPayinBills.setupWithViewPager(binding.viewPagerPayinBills);
+
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
 }
