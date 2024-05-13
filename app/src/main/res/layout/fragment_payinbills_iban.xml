@@ -55,21 +55,61 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <EditText
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:layout_margin="15dp"
-                android:hint="Tutar"
-                android:lines="1"
-                android:textColor="#A3A3A3" />
+                android:orientation="horizontal">
 
-            <EditText
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+                    android:hint="Tutar"
+                    android:lines="1"
+                    android:textColor="#A3A3A3" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="TÜM BAKİYE" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:background="#000000" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:hint="Açıklama"
-                android:lines="1"
-                android:textColor="#A3A3A3" />
+                android:orientation="vertical">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Açıklama"
+                    android:maxLines="5"
+                    android:textColor="#A3A3A3" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="0 / 200"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
             <Spinner
                 android:id="@+id/sendTypeSpinner"
@@ -77,11 +117,12 @@
                 android:layout_height="50dp"
                 android:layout_margin="15dp"
                 android:spinnerMode="dialog" />
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/menu_buton_normal"
-                android:text="Gönder"/>
+                android:text="Gönder" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
