@@ -21,6 +21,7 @@ import com.hasanbilgin.bankaapp.Adapters.MoneyMovementsAdapter;
 import com.hasanbilgin.bankaapp.Adapters.SendMoneyAdapter;
 import com.hasanbilgin.bankaapp.Contants.Constants;
 import com.hasanbilgin.bankaapp.Models.MoneyMovementsModel;
+import com.hasanbilgin.bankaapp.Other.MainClass;
 import com.hasanbilgin.bankaapp.R;
 import com.hasanbilgin.bankaapp.Views.BankStatement.BankStatementFragmentDirections;
 import com.hasanbilgin.bankaapp.Views.LoginIndividual.LoginIndividualViewModel;
@@ -91,13 +92,18 @@ public class HomePageFragment extends Fragment {
 
     private void getAccountInfo() {
         viewModel.accountInfo();
-        viewModel.resultMessageInt.observe(getViewLifecycleOwner(), resultMessageInt -> {
-            switch (resultMessageInt) {
-                case 0:  Toast.makeText(getContext(), "Hesap Bilgileri getirilemedi Lütfen Tekrar deneyiniz", Toast.LENGTH_SHORT).show();
+        viewModel.resultAccountInfo.observe(getViewLifecycleOwner(), resultAccountInfo -> {
+            switch (resultAccountInfo.getResultMessageInt()) {
+                case 0:
+                    Toast.makeText(getContext(), "Hesap Bilgileri getirilemedi Lütfen Tekrar deneyiniz", Toast.LENGTH_SHORT).show();
                     break;
                 case 1:
+                    binding.accountNameTextView.setText(resultAccountInfo.getAccountName());
+                    binding.ibanTextView.setText(MainClass.getSpace(resultAccountInfo.getIbanNo()));
+                    String balance = MainClass.getCommaAndZero(resultAccountInfo.getBalance().toString());
+                    binding.balanceTextView.setText(balance);
+                    binding.availableBalanceTextView.setText(balance);
 
-                    //devam edilcek
                     break;
                 case 2:
                     break;

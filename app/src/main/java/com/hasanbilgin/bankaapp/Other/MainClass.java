@@ -43,4 +43,15 @@ public class MainClass {
         }
         return amount;
     }
+
+    public static String getSpace(String word) {
+        String newWord =word.substring(0,4)+" ";
+        newWord=newWord+word.substring(4,8)+" ";
+        newWord=newWord+word.substring(8,12)+" ";
+        newWord=newWord+word.substring(12,16)+" ";
+        newWord=newWord+word.substring(16,20)+" ";
+        newWord=newWord+word.substring(20,24)+" ";
+        newWord=newWord+word.substring(24,26);
+        return  newWord;
+    }
 }

@@ -63,8 +63,6 @@ public class HomePageViewModel extends ViewModel {
     }
 
     public void accountInfo() {
-        //list olarak çekilcek
-        resultMessageInt = new MutableLiveData<>();
         resultAccountInfo = new MutableLiveData<>();
         Call<AccountInfoModel> accountInfo = ManagerAll.getInstance().accountInfo();
         accountInfo.enqueue(new Callback<AccountInfoModel>() {
@@ -72,7 +70,7 @@ public class HomePageViewModel extends ViewModel {
             public void onResponse(Call<AccountInfoModel> call, Response<AccountInfoModel> response) {
                 if(response.isSuccessful()){
                     if(response.body().getResult()){
-
+                        resultAccountInfo.setValue(response.body());
                         System.out.println("resultAccountInfo"+response.body().toString());
                     }else{
                         System.out.println("getResult else");
@@ -82,7 +80,6 @@ public class HomePageViewModel extends ViewModel {
                     System.out.println("isSuccessful . else");
                 }
             }
-
             @Override
             public void onFailure(Call<AccountInfoModel> call, Throwable t) {
                 System.out.println("Throwable: "+t);
