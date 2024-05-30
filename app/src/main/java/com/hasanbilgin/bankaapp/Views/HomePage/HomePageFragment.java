@@ -101,9 +101,8 @@ public class HomePageFragment extends Fragment {
                     binding.accountNameTextView.setText(resultAccountInfo.getAccountName());
                     binding.ibanTextView.setText(MainClass.getSpace(resultAccountInfo.getIbanNo()));
                     String balance = MainClass.getCommaAndZero(resultAccountInfo.getBalance().toString());
-                    binding.balanceTextView.setText(balance);
-                    binding.availableBalanceTextView.setText(balance);
-
+                    binding.balanceTextView.setText(balance+" "+resultAccountInfo.getCurrency());
+                    binding.availableBalanceTextView.setText(balance+" "+resultAccountInfo.getCurrency());
                     break;
                 case 2:
                     break;

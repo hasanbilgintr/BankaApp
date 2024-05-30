@@ -76,12 +76,15 @@
                     android:layout_height="wrap_content"
                     android:text="Vadesiz TL test"
                     android:textColor="#DDDDDD"
+                    android:id="@+id/defaultAccountNameTextView"
+
                     android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TR12 3456 7891"
+                    android:id="@+id/defaultIbanTextView"
                     android:textColor="#DDDDDD"
                     android:textSize="16sp" />
 
@@ -111,6 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0,00 TL"
+                android:id="@+id/defaultBalanceTextView"
                 android:textColor="#000000"
                 android:textSize="18sp"
                 android:textStyle="bold" />

@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel;
 import com.hasanbilgin.bankaapp.Contants.Constants;
 import com.hasanbilgin.bankaapp.Models.AccountInfoModel;
 import com.hasanbilgin.bankaapp.Models.MoneyMovementsModel;
+import com.hasanbilgin.bankaapp.Other.MainClass;
 import com.hasanbilgin.bankaapp.Services.ManagerAll;
 
 import java.text.DateFormat;
@@ -42,6 +43,7 @@ public class HomePageViewModel extends ViewModel {
                         if (response.body().get(0).getResult()) {
                             //System.out.println("getResult");
                             resultMoneyMovementsList.setValue(response.body());
+
                             //System.out.println(response.body().toString());
                         }
                         resultMessageInt.setValue(response.body().get(0).getResultMessageInt());
@@ -68,21 +70,26 @@ public class HomePageViewModel extends ViewModel {
         accountInfo.enqueue(new Callback<AccountInfoModel>() {
             @Override
             public void onResponse(Call<AccountInfoModel> call, Response<AccountInfoModel> response) {
-                if(response.isSuccessful()){
-                    if(response.body().getResult()){
+                if (response.isSuccessful()) {
+                    if (response.body().getResult()) {
                         resultAccountInfo.setValue(response.body());
-                        System.out.println("resultAccountInfo"+response.body().toString());
-                    }else{
+                        Constants.defaultAccount.defaultIbanNo =MainClass.getSpace(response.body().getIbanNo());
+                        Constants.defaultAccount.defaultAccountName = response.body().getAccountName();
+                        Constants.defaultAccount.defaultBalance = MainClass.getCommaAndZero(response.body().getBalance().toString());
+                        Constants.defaultAccount.defaultCurrency = response.body().getCurrency();
+
+                        System.out.println("resultAccountInfo" + response.body().toString());
+                    } else {
                         System.out.println("getResult else");
-                        System.out.println("encode: "+response.body().toString());
+                        System.out.println("encode: " + response.body().toString());
                     }
-                }else{
+                } else {
                     System.out.println("isSuccessful . else");
                 }
             }
             @Override
             public void onFailure(Call<AccountInfoModel> call, Throwable t) {
-                System.out.println("Throwable: "+t);
+                System.out.println("Throwable: " + t);
             }
         });
 

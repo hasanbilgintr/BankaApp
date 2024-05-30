@@ -8,12 +8,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.hasanbilgin.bankaapp.Adapters.SectionsPagerHomePageAdapter;
 import com.hasanbilgin.bankaapp.Adapters.SectionsPagerPayinBillsAdapter;
+import com.hasanbilgin.bankaapp.Contants.Constants;
 import com.hasanbilgin.bankaapp.R;
 import com.hasanbilgin.bankaapp.Views.Login.LoginViewModel;
 import com.hasanbilgin.bankaapp.databinding.FragmentLoginBinding;
@@ -45,8 +47,11 @@ public class PayinBillsFragment extends Fragment {
 
         SectionsPagerPayinBillsAdapter sectionsPagerPayinBillsAdapter = new SectionsPagerPayinBillsAdapter(getContext(), requireActivity().getSupportFragmentManager());
         binding.viewPagerPayinBills.setAdapter(sectionsPagerPayinBillsAdapter);
-
         binding.tabPayinBills.setupWithViewPager(binding.viewPagerPayinBills);
+
+        binding.defaultAccountNameTextView.setText(Constants.defaultAccount.defaultAccountName);
+        binding.defaultIbanTextView.setText(Constants.defaultAccount.defaultIbanNo);
+        binding.defaultBalanceTextView.setText(Constants.defaultAccount.defaultBalance+" "+Constants.defaultAccount.defaultCurrency);
 
     }
 

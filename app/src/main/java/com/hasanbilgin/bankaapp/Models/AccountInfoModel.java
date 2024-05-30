@@ -5,6 +5,7 @@ public class AccountInfoModel {
     private String accountName;
     private String ibanNo;
     private Double balance;
+    private String currency;
     private int resultMessageInt;
     private Boolean isResult;
 
@@ -26,6 +27,14 @@ public class AccountInfoModel {
 
     public Double getBalance() {
         return balance;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public void setBalance(Double balance) {
@@ -55,12 +64,11 @@ public class AccountInfoModel {
                 "accountName='" + accountName + '\'' +
                 ", ibanNo='" + ibanNo + '\'' +
                 ", balance=" + balance +
+                ", currency=" + currency +
                 ", resultMessageInt=" + resultMessageInt +
                 ", isResult=" + isResult +
                 '}';
     }
-
-
 
 
 }
