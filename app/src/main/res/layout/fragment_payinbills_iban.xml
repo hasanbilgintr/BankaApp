@@ -32,10 +32,12 @@
                         android:layout_height="wrap_content">
 
                         <EditText
+                            android:id="@+id/ibanTextView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="IBAN"
                             android:lines="1"
+                            android:maxLength="26"
                             android:textColor="#A3A3A3" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
@@ -58,15 +60,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_margin="15dp"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <EditText
+                    android:id="@+id/ammountTextView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="100"
                     android:hint="Tutar"
+                    android:inputType="numberDecimal"
                     android:lines="1"
                     android:textColor="#A3A3A3" />
 
@@ -74,6 +78,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="30"
+                    android:id="@+id/allBalanceTextView"
                     android:orientation="vertical">
 
                     <TextView
@@ -95,10 +100,13 @@
                 android:layout_margin="15dp"
                 android:orientation="vertical">
 
+
                 <EditText
+                    android:id="@+id/descriptionTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Açıklama"
+                    android:maxLength="200"
                     android:maxLines="5"
                     android:textColor="#A3A3A3" />
 
@@ -107,6 +115,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:text="0 / 200"
+
+                    android:id="@+id/descriptionLenghtTextView"
                     android:textColor="#000000"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -119,6 +129,7 @@
                 android:spinnerMode="dialog" />
 
             <Button
+                android:id="@+id/sendButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/menu_buton_normal"

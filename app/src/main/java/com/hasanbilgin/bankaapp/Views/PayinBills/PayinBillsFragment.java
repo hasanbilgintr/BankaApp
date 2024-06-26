@@ -52,7 +52,6 @@ public class PayinBillsFragment extends Fragment {
         binding.defaultAccountNameTextView.setText(Constants.defaultAccount.defaultAccountName);
         binding.defaultIbanTextView.setText(Constants.defaultAccount.defaultIbanNo);
         binding.defaultBalanceTextView.setText(Constants.defaultAccount.defaultBalance+" "+Constants.defaultAccount.defaultCurrency);
-
     }
 
     @Override

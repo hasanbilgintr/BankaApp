@@ -9,9 +9,6 @@ import java.util.Date;
 public class MoneyMovementsModel {
 
     private int id;
-
-
-
     private int accountId;
     private Double amount;
     private String transferDate;

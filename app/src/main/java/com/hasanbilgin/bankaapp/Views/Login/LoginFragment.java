@@ -40,7 +40,6 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         SectionsPagerHomePageAdapter sectionsPagerHomePageAdapter = new SectionsPagerHomePageAdapter(getContext(), requireActivity().getSupportFragmentManager());
         binding.viewPagerLogin.setAdapter(sectionsPagerHomePageAdapter);
         binding.tabLogin.setupWithViewPager(binding.viewPagerLogin);

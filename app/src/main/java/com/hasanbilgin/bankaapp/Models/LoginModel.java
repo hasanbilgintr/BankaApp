@@ -3,8 +3,12 @@ package com.hasanbilgin.bankaapp.Models;
 public class LoginModel {
 
     private int accountId;
-
     private String email;
+
+
+
+    private String name;
+    private String surname;
     private int resultMessageInt;
     private Boolean isResult;
 
@@ -40,18 +44,34 @@ public class LoginModel {
         isResult = result;
     }
 
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
     @Override
     public String toString() {
         return "LoginModel{" +
                 "accountId=" + accountId +
                 ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
                 ", resultMessageInt=" + resultMessageInt +
                 ", isResult=" + isResult +
                 '}';
     }
-
-
-
 
 
 }

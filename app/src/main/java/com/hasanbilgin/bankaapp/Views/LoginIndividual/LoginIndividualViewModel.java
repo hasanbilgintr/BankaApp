@@ -30,8 +30,11 @@ public class LoginIndividualViewModel extends ViewModel {
                     if (response.isSuccessful()) {
                         if (response.body().getResult()) {
                             //System.out.println("response: "+response.body().toString());
-                            Constants.login.accounID = response.body().getAccountId();
+                            Constants.login.accountID = response.body().getAccountId();
                             Constants.login.email = response.body().getEmail();
+                            Constants.login.name = response.body().getName();
+                            Constants.login.surname = response.body().getSurname();
+
 
                         } else {
                             //verinin olmaması

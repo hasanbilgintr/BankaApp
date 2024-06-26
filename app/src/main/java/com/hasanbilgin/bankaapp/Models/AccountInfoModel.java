@@ -8,7 +8,6 @@ public class AccountInfoModel {
     private String currency;
     private int resultMessageInt;
     private Boolean isResult;
-
     public String getAccountName() {
         return accountName;
     }

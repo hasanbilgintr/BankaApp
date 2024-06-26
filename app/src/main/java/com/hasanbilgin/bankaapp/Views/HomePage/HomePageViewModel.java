@@ -34,7 +34,7 @@ public class HomePageViewModel extends ViewModel {
         resultMessageInt = new MutableLiveData<>();
         resultMoneyMovementsList = new MutableLiveData<>();
 
-        Call<List<MoneyMovementsModel>> moneyMovementsList = ManagerAll.getInstance().moneyMovementsList(Constants.login.accounID);
+        Call<List<MoneyMovementsModel>> moneyMovementsList = ManagerAll.getInstance().moneyMovementsList(Constants.login.accountID);
         try {
             moneyMovementsList.enqueue(new Callback<List<MoneyMovementsModel>>() {
                 @Override
