@@ -1,10 +1,6 @@
 plugins {
     alias(libs.plugins.androidApplication)
     id ("androidx.navigation.safeargs")//eklendi
-
-
-
-
 }
 
 android {
@@ -58,4 +54,8 @@ dependencies {
 
     implementation("androidx.navigation:navigation-fragment:$nav_version")//navigation eklendi
     implementation("androidx.navigation:navigation-ui:$nav_version")//navigation eklendi
+
+    //pdf için eklendi
+    //implementation("com.github.barteksc:android-pdf-viewer:2.8.2") // yada böle allatki gibi tıklatılıp olur
+    implementation(libs.android.pdf.viewer)
 }

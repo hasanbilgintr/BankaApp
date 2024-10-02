@@ -2,7 +2,6 @@ package com.hasanbilgin.bankaapp.Adapters;
 
 import android.content.Context;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
@@ -10,14 +9,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.hasanbilgin.bankaapp.R;
-import com.hasanbilgin.bankaapp.Views.LoginCommercial.LoginCommercialFragment;
-import com.hasanbilgin.bankaapp.Views.LoginIndividual.LoginIndividualFragment;
-import com.hasanbilgin.bankaapp.Views.MyAssets.MyAssetsFragment;
-import com.hasanbilgin.bankaapp.Views.MySettings.MySettingsFragment;
-import com.hasanbilgin.bankaapp.Views.PayinBillsBill.PayingBillsBillFragment;
-import com.hasanbilgin.bankaapp.Views.PayinBillsCard.PayinBillsCardFragment;
-import com.hasanbilgin.bankaapp.Views.PayinBillsIban.PayinBillsIbanFragment;
-import com.hasanbilgin.bankaapp.Views.PayinBillsSimpleAddress.PayinBillsSimpleAddressFragment;
+import com.hasanbilgin.bankaapp.Views.PayingBills.PayingBillsBill.PayingBillsBillFragment;
+import com.hasanbilgin.bankaapp.Views.PayingBills.PayingBillsCard.PayingBillsCardFragment;
+import com.hasanbilgin.bankaapp.Views.PayingBills.PayingBillsIban.PayingBillsIbanFragment;
+import com.hasanbilgin.bankaapp.Views.PayingBills.PayingBillsSimpleAddress.PayingBillsSimpleAddressFragment;
 
 
 public class SectionsPagerPayinBillsAdapter extends FragmentPagerAdapter {
@@ -39,13 +34,13 @@ public class SectionsPagerPayinBillsAdapter extends FragmentPagerAdapter {
 
 
         if (position == 0) {
-            return PayinBillsIbanFragment.newInstance();
+            return PayingBillsIbanFragment.newInstance();
         } else if (position == 1) {
             return PayingBillsBillFragment.newInstance();
         } else if (position == 2) {
-            return PayinBillsCardFragment.newInstance();
+            return PayingBillsCardFragment.newInstance();
         } else {
-            return PayinBillsSimpleAddressFragment.newInstance();
+            return PayingBillsSimpleAddressFragment.newInstance();
         }
 
     }

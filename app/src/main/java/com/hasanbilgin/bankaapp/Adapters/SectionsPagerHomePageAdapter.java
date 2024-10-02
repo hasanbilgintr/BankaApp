@@ -9,9 +9,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.hasanbilgin.bankaapp.R;
-import com.hasanbilgin.bankaapp.Views.LoginCommercial.LoginCommercialFragment;
-import com.hasanbilgin.bankaapp.Views.LoginIndividual.LoginIndividualFragment;
-import com.hasanbilgin.bankaapp.Views.PayinBillsIban.PayinBillsIbanFragment;
+import com.hasanbilgin.bankaapp.Views.Login.LoginCommercial.LoginCommercialFragment;
+import com.hasanbilgin.bankaapp.Views.Login.LoginIndividual.LoginIndividualFragment;
 
 
 public class SectionsPagerHomePageAdapter extends FragmentPagerAdapter {

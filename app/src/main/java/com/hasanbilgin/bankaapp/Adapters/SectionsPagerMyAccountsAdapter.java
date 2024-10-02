@@ -9,10 +9,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.hasanbilgin.bankaapp.R;
-import com.hasanbilgin.bankaapp.Views.AllTransactions.AllTransactionsFragment;
-import com.hasanbilgin.bankaapp.Views.HomePage.HomePageFragment;
-import com.hasanbilgin.bankaapp.Views.MyAssets.MyAssetsFragment;
-import com.hasanbilgin.bankaapp.Views.MySettings.MySettingsFragment;
+import com.hasanbilgin.bankaapp.Views.BankStatement.AllTransactions.AllTransactionsFragment;
+import com.hasanbilgin.bankaapp.Views.BankStatement.HomePage.HomePageFragment;
+import com.hasanbilgin.bankaapp.Views.BankStatement.MyAssets.MyAssetsFragment;
+import com.hasanbilgin.bankaapp.Views.BankStatement.MySettings.MySettingsFragment;
 
 
 public class SectionsPagerMyAccountsAdapter extends FragmentPagerAdapter {
@@ -40,7 +40,6 @@ public class SectionsPagerMyAccountsAdapter extends FragmentPagerAdapter {
         } else {
             return AllTransactionsFragment.newInstance();
         }
-
     }
 
     @Nullable

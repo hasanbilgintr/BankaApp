@@ -9,6 +9,8 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        //eklendi pdf için
+        jcenter()
     }
 }
 dependencyResolutionManagement {
@@ -16,6 +18,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        //eklendi pdf için
+        jcenter()
     }
 }
 

@@ -7,16 +7,19 @@
 
     <fragment
         android:id="@+id/bankStatementFragment"
-        android:name="com.hasanbilgin.bankaapp.Views.BankStatement.BankStatementFragment"
+        android:name="com.hasanbilgin.bankaapp.Views.BankStatement.BankStatementHome.BankStatementFragment"
         android:label="fragment_bank_statement"
         tools:layout="@layout/fragment_bank_statement" >
         <action
             android:id="@+id/action_bankStatementFragment_to_sendMoneyFragment"
             app:destination="@id/sendMoneyFragment" />
+        <action
+            android:id="@+id/action_bankStatementFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.hasanbilgin.bankaapp.Views.Login.LoginFragment"
+        android:name="com.hasanbilgin.bankaapp.Views.Login.LoginHome.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -34,7 +37,16 @@
     </fragment>
     <fragment
         android:id="@+id/payinBillsFragment"
-        android:name="com.hasanbilgin.bankaapp.Views.PayinBills.PayinBillsFragment"
+        android:name="com.hasanbilgin.bankaapp.Views.PayingBills.PayingBillsHome.PayingBillsFragment"
         android:label="fragment_payin_bills"
-        tools:layout="@layout/fragment_payin_bills" />
+        tools:layout="@layout/fragment_paying_bills" >
+        <action
+            android:id="@+id/action_payinBillsFragment_to_payinBillsIbanPdfFragment"
+            app:destination="@id/payinBillsIbanPdfFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/payinBillsIbanPdfFragment"
+        android:name="com.hasanbilgin.bankaapp.Views.Pdf.PayingBillsIbanPdfFragment"
+        android:label="fragment_payin_bills_iban_pdf"
+        tools:layout="@layout/fragment_paying_bills_iban_pdf" />
 </navigation>

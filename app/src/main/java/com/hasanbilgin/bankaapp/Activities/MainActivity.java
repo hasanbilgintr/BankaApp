@@ -1,19 +1,22 @@
 package com.hasanbilgin.bankaapp.Activities;
 
+import static java.security.AccessController.getContext;
+
 import android.os.Bundle;
-import android.widget.Toast;
-import android.window.OnBackInvokedDispatcher;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.hasanbilgin.bankaapp.Contants.Constants;
 import com.hasanbilgin.bankaapp.Other.ChangeFragment;
 import com.hasanbilgin.bankaapp.R;
-import com.hasanbilgin.bankaapp.Views.Login.LoginFragment;
+import com.hasanbilgin.bankaapp.Views.BankStatement.BankStatementHome.BankStatementFragment;
+import com.hasanbilgin.bankaapp.Views.BankStatement.HomePage.HomePageFragment;
+import com.hasanbilgin.bankaapp.Views.Login.LoginHome.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,14 +31,34 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-
-//        ChangeFragment changeFragment = new ChangeFragment(MainActivity.this, new LoginFragment(), "LoginFragment", R.id.content_FrameLayout);
+//        ChangeFragment changeFragment = new ChangeFragment(MainActivity.this, new HomePageFragment(), "LoginFragment", R.id.main);
 //        changeFragment.change();
     }
 
-    //geri tuşu kapatıldı
+    //kapatıldı farklı birşeyler düşünülcek
+    //navigation ile activityden yönlendirme şart
     @Override
     public void onBackPressed() {
-        //super.onBackPressed();
+
+//        switch (Constants.viewInfo.viewName) {
+//            case "BankStatementFragment":
+//                break;
+//            case "PayingBillsIbanPdfFragment":
+////                ChangeFragment changeFragment = new ChangeFragment(MainActivity.this, new HomePageFragment(), "HomePageFragment", R.id.main);
+////                changeFragment.change();
+//
+//
+//
+//
+//                break;
+//
+//            default:
+//                super.onBackPressed();
+//                break;
+//        }
+        System.out.println("activity.onBackPressed()");
+        super.onBackPressed();
     }
+
+
 }

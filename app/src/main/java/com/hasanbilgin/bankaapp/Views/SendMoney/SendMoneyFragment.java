@@ -17,10 +17,6 @@ import android.view.ViewGroup;
 
 import com.hasanbilgin.bankaapp.Adapters.SendMoneyAdapter;
 import com.hasanbilgin.bankaapp.Models.SendMoneyModel;
-import com.hasanbilgin.bankaapp.R;
-import com.hasanbilgin.bankaapp.Views.Login.LoginFragment;
-import com.hasanbilgin.bankaapp.Views.LoginIndividual.LoginIndividualViewModel;
-import com.hasanbilgin.bankaapp.databinding.FragmentLoginIndividualBinding;
 import com.hasanbilgin.bankaapp.databinding.FragmentSendMoneyBinding;
 
 import java.util.ArrayList;

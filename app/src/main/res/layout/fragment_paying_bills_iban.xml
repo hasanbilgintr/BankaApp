@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Views.PayingBills.PayingBillsIban.PayingBillsIbanFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/ibanTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="IBAN"
+                            android:lines="1"
+                            android:maxLength="26"
+                            android:textColor="#A3A3A3" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/photo" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="İşlem Bilgileri"
+                android:textColor="#ACACAC"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/ammountTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+                    android:hint="Tutar"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:textColor="#A3A3A3" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:id="@+id/allBalanceTextView"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="TÜM BAKİYE" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:background="#000000" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+
+
+                <EditText
+                    android:id="@+id/descriptionTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Açıklama"
+                    android:maxLength="200"
+                    android:maxLines="5"
+                    android:textColor="#A3A3A3" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="0 / 200"
+
+                    android:id="@+id/descriptionLenghtTextView"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/sendTypeSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:spinnerMode="dialog" />
+
+            <Button
+                android:id="@+id/sendButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/menu_buton_normal"
+                android:text="Gönder" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

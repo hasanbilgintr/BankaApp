@@ -38,20 +38,7 @@ public interface RestApi {
     //region payingBillFile
     @FormUrlEncoded
     @POST(Constants.payingBillFile)
-    Call<PayingBillsModel> payingBill(
-            @Field("senderAccountID") int senderAccountID,
-            @Field("ibanNo") String iban,
-            @Field("amount") int ammount,
-            @Field("description") String description,
-            @Field("submissionType") String submissionType,
-            @Field("transferType") String transferType,
-            @Field("name") String name,
-            @Field("surname") String surname,
-
-            @Field("dbhost") String dbhost,
-            @Field("dbusername") String dbusername,
-            @Field("dbpassword") String dbpassword,
-            @Field("dbname") String dbname);
+    Call<PayingBillsModel> payingBill(@Field("senderAccountID") int senderAccountID, @Field("ibanNo") String iban, @Field("amount") int ammount, @Field("description") String description, @Field("submissionType") String submissionType, @Field("transferType") String transferType, @Field("name") String name, @Field("surname") String surname, @Field("dbhost") String dbhost, @Field("dbusername") String dbusername, @Field("dbpassword") String dbpassword, @Field("dbname") String dbname);
     //endregion
 
 }
