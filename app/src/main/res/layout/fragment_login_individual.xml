@@ -68,7 +68,7 @@
                     android:layout_margin="15sp"
                     android:hint="Dijital Şifre (123456) giriniz"
                     android:maxLength="6"
-                    android:textColorHint="#8B8B8B"
+                    android:textColorHint="@color/black"
                     android:textColor="#000000"
                     android:inputType="numberPassword"
                     android:textSize="18sp" />

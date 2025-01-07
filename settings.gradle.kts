@@ -18,6 +18,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        //pdf için eklendi
+        maven {
+            url = uri("https://www.jitpack.io" )
+        }
         //eklendi pdf için
         jcenter()
     }

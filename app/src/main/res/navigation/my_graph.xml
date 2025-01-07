@@ -49,4 +49,5 @@
         android:name="com.hasanbilgin.bankaapp.Views.Pdf.PayingBillsIbanPdfFragment"
         android:label="fragment_payin_bills_iban_pdf"
         tools:layout="@layout/fragment_paying_bills_iban_pdf" />
+
 </navigation>
